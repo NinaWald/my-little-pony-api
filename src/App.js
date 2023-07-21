@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import PonyStart from 'components/PonyStart';
+import PonyDetails from 'components/PonyDetails'
 
 export const App = () => {
   return (
-    <div>
-      Find me in src/app.js!
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PonyStart />} />
+        <Route path="/character/:id" element={<PonyDetails />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
