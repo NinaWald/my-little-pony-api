@@ -19,7 +19,6 @@ const CharacterImages = ({ characterId }) => {
 
   return (
     <div>
-      <h3>Images:</h3>
       <ul>
         {images.map((image) => (
           <li key={image.id}>

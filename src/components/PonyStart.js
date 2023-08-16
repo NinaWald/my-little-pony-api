@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import PonyCard from './PonyCard'; // Import the PonyCard component
 import './PonyStart.css';
 
 const PonyStart = () => {
@@ -18,28 +18,15 @@ const PonyStart = () => {
   useEffect(() => {
     fetchCharacters();
   }, []);
-  console.log(characters);
 
   return (
     <div className="container">
       <h1>My Little Pony Characters</h1>
-      <ul>
+      <div className="pony-cards">
         {characters.map((character) => (
-          <li key={character.id}>
-            <strong>Name:</strong> {character.name}
-            <br />
-            <strong>Alias:</strong> {character.alias}
-            <br />
-            <strong>Residence:</strong> {character.residence}
-            <br />
-            <img src={character.image[0]} alt={character.name} style={{ maxWidth: '300px' }} />
-            <br />
-
-            <Link to={`/character/${character.id}`}>Details</Link>
-            <br />
-          </li>
+          <PonyCard key={character.id} pony={character} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
